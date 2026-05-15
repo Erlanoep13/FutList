@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Garante que o fundo cubra a tela toda, mesmo sem conteúdo */
+html, body {
+  min-height: 100vh;
+  background-color: #121214; /* Nosso fundo escuro padrão */
+}

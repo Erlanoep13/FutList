@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    // Diretórios de entrada e saída
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // Configurações do TypeORM (Essenciais)
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    // Environment Settings
+    "module": "nodenext",
+    "target": "esnext",
+    "types": ["node"],
+
+    // Other Outputs
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Recommended Options
+    "strict": true,
+    "jsx": "react-jsx",
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true
+  }
+}
