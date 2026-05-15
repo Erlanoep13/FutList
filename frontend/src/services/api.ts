@@ -1,14 +1,13 @@
 import axios from 'axios';
 
+// Intercepta requisições e injeta a URL do Render quando em produção, ou o localhost em testes
 export const api = axios.create({
-  baseURL: 'http://localhost:3333',
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3333',
 });
 
-// Intercepta a requisição antes de enviá-la ao servidor
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('@FutList:token');
 
-  // Se o token existir, injeta no cabeçalho de Autorização
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
