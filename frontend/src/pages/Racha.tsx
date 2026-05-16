@@ -25,12 +25,17 @@ export function Racha() {
     const linhasPrincipais = rawText.split('\n');
     const nomesPrincipais = linhasPrincipais
       .map(linha => linha.replace(/^\d+\s*[-.)]\s*/, '').trim())
-      .filter(linha => 
-        linha.length > 0 && 
-        !linha.toLowerCase().includes('lista fechada') && 
-        !linha.toLowerCase().includes('vagas reservas') &&
-        !linha.toLowerCase().includes('racha')
-      );
+      .filter(linha => {
+        const linhaMinuscula = linha.toLowerCase();
+        return (
+          linha.length > 0 && 
+          !linhaMinuscula.includes('lista fechada') && 
+          !linhaMinuscula.includes('vagas reservas') &&
+          !linhaMinuscula.includes('racha') &&
+          linhaMinuscula !== 'reserva' &&  // NOVO: Ignora a palavra solta "reserva"
+          linhaMinuscula !== 'reservas'    // NOVO: Ignora o plural também
+        );
+      });
 
     // VALIDAÇÃO: A lista principal é obrigatória
     if (nomesPrincipais.length === 0) {
@@ -182,10 +187,8 @@ export function Racha() {
           </div>
         ) : (
           <div className="flex flex-col gap-4 flex-1">
-            {/* INÍCIO DA ÁREA ALTERADA: Títulos acima dos inputs */}
             <div className="flex gap-2">
               
-              {/* Caixinha do Nome do Racha */}
               <div className="flex flex-col w-2/3">
                 <label className="text-xs text-futlist-muted mb-1 ml-1 font-medium">
                   Nome do Racha
@@ -198,7 +201,6 @@ export function Racha() {
                 />
               </div>
 
-              {/* Caixinha da Quantidade de Jogadores */}
               <div className="flex flex-col w-1/3">
                 <label className="text-xs text-futlist-muted mb-1 font-medium text-center">
                   Jogadores/time
@@ -213,7 +215,6 @@ export function Racha() {
               </div>
 
             </div>
-            {/* FIM DA ÁREA ALTERADA */}
 
             <div className="flex flex-col gap-1 w-full mt-2 flex-1">
               <p className="text-xs text-futlist-muted mb-2 px-1 flex justify-between">
