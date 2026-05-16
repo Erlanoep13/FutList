@@ -182,21 +182,38 @@ export function Racha() {
           </div>
         ) : (
           <div className="flex flex-col gap-4 flex-1">
+            {/* INÍCIO DA ÁREA ALTERADA: Títulos acima dos inputs */}
             <div className="flex gap-2">
-              <input 
-                type="text" 
-                value={cabecalho}
-                onChange={(e) => setCabecalho(e.target.value)}
-                className="w-2/3 bg-futlist-dark border border-gray-700 rounded-lg p-3 text-sm focus:outline-none focus:border-futlist-green"
-              />
-              <input 
-                type="number" 
-                value={qtdPorTime}
-                onChange={(e) => setQtdPorTime(Number(e.target.value))}
-                className="w-1/3 bg-futlist-dark border border-gray-700 rounded-lg p-3 text-sm text-center focus:outline-none focus:border-futlist-green"
-                min="2"
-              />
+              
+              {/* Caixinha do Nome do Racha */}
+              <div className="flex flex-col w-2/3">
+                <label className="text-xs text-futlist-muted mb-1 ml-1 font-medium">
+                  Nome do Racha
+                </label>
+                <input 
+                  type="text" 
+                  value={cabecalho}
+                  onChange={(e) => setCabecalho(e.target.value)}
+                  className="w-full bg-futlist-dark border border-gray-700 rounded-lg p-3 text-sm focus:outline-none focus:border-futlist-green"
+                />
+              </div>
+
+              {/* Caixinha da Quantidade de Jogadores */}
+              <div className="flex flex-col w-1/3">
+                <label className="text-xs text-futlist-muted mb-1 font-medium text-center">
+                  Jogadores/time
+                </label>
+                <input 
+                  type="number" 
+                  value={qtdPorTime}
+                  onChange={(e) => setQtdPorTime(Number(e.target.value))}
+                  className="w-full bg-futlist-dark border border-gray-700 rounded-lg p-3 text-sm text-center focus:outline-none focus:border-futlist-green"
+                  min="2"
+                />
+              </div>
+
             </div>
+            {/* FIM DA ÁREA ALTERADA */}
 
             <div className="flex flex-col gap-1 w-full mt-2 flex-1">
               <p className="text-xs text-futlist-muted mb-2 px-1 flex justify-between">

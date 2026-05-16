@@ -28,7 +28,7 @@ export function Login() {
     <div className="min-h-screen bg-futlist-dark text-futlist-text flex justify-center items-center p-4">
       <div className="w-full max-w-md bg-futlist-card rounded-2xl p-8 shadow-2xl border border-gray-800">
         <header className="mb-8 text-center">
-          <h1 className="text-3xl font-bold text-futlist-green mb-2">FutList⚽</h1>
+          <h1 className="text-3xl font-bold text-futlist-green mb-2">FutList</h1>
           <p className="text-futlist-muted">Feito na inteção de acabar com o racha</p>
         </header>
 

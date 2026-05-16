@@ -1,6 +1,7 @@
 import { Router } from 'express';
-// Suas outras importações de rotas aqui, ex:
-// import { rachaRoutes } from '../modules/racha/routes/racha.routes';
+import { rachaRoutes } from '../modules/racha/racha.routes';
+import { usersRoutes } from '../modules/users/users.routes';
+import { authRoutes } from '../modules/auth/auth.routes';
 
 const routes = Router();
 
@@ -9,7 +10,9 @@ routes.get('/ping', (req, res) => {
   return res.json({ status: 'ok', message: 'Servidor FutList operando!' });
 });
 
-// Suas outras rotas aqui, ex:
-// routes.use('/racha', rachaRoutes);
+// Suas rotas principais
+routes.use('/racha', rachaRoutes);
+routes.use('/users', usersRoutes);
+routes.use('/auth', authRoutes);
 
 export { routes };
