@@ -3,3 +3,4 @@ Um pequeno sistema para sanitizar uma lista de nomes bagunçadas para o sorteio 
 
 
 teste
+teste2
