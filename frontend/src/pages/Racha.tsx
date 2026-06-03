@@ -19,6 +19,12 @@ export function Racha() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  const limparLista = () => {
+    setRawText('');
+    setExtraText('');
+    setError('');
+  };
+
   const processarLista = () => {
     setError('');
     
@@ -105,8 +111,8 @@ export function Racha() {
 
   if (timesSorteados.length > 0) {
     return (
-      <div className="min-h-screen bg-futlist-dark text-futlist-text flex justify-center p-4">
-        <div className="w-full max-w-md bg-futlist-card rounded-2xl p-6 shadow-2xl border border-gray-800 flex flex-col min-h-[calc(100vh-2rem)]">
+      <div className="min-h-[100dvh] bg-futlist-dark text-futlist-text flex justify-center p-4 pb-10">
+        <div className="w-full max-w-md bg-futlist-card rounded-2xl p-6 shadow-2xl border border-gray-800 flex flex-col min-h-[calc(100dvh-3rem)]">
           <header className="mb-6 text-center">
             <h1 className="text-2xl font-bold text-futlist-green">{cabecalho}</h1>
             <p className="text-futlist-muted text-sm">Times definidos</p>
@@ -144,8 +150,8 @@ export function Racha() {
   }
 
   return (
-    <div className="min-h-screen bg-futlist-dark text-futlist-text flex justify-center p-4">
-      <div className="w-full max-w-md bg-futlist-card rounded-2xl p-6 shadow-2xl border border-gray-800 flex flex-col min-h-[calc(100vh-2rem)]">
+    <div className="min-h-[100dvh] bg-futlist-dark text-futlist-text flex justify-center p-4 pb-10">
+      <div className="w-full max-w-md bg-futlist-card rounded-2xl p-6 shadow-2xl border border-gray-800 flex flex-col min-h-[calc(100dvh-3rem)]">
         <header className="mb-6 flex justify-between items-center">
           <h1 className="text-2xl font-bold text-futlist-green">Configurar Racha</h1>
         </header>
@@ -181,12 +187,18 @@ export function Racha() {
               />
             </div>
 
-            <div className="mt-auto pt-2">
+            <div className="mt-auto pt-2 flex flex-col gap-3">
               <button
                 onClick={processarLista}
                 className="w-full bg-futlist-green hover:bg-emerald-500 text-futlist-dark font-bold py-4 rounded-xl transition-colors"
               >
                 Organizar Nomes
+              </button>
+              <button
+                onClick={limparLista}
+                className="w-full bg-transparent border border-futlist-red/50 text-futlist-red hover:bg-futlist-red hover:text-white font-bold py-3 rounded-xl transition-colors"
+              >
+                Limpar Lista
               </button>
             </div>
           </div>
