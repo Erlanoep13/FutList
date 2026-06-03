@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { api } from '../services/api';
+import { isAxiosError } from 'axios';
 
 interface Time {
   nome: string;
@@ -82,8 +83,12 @@ export function Racha() {
       });
 
       setTimesSorteados(response.data.times);
-    } catch (err: any) {
-      setError(err.response?.data?.error || 'Erro ao realizar sorteio.');
+    } catch (err) {
+      if (isAxiosError(err)) {
+        setError(err.response?.data?.error || 'Erro ao realizar sorteio.');
+      } else {
+        setError('Erro ao realizar sorteio.');
+      }
     } finally {
       setLoading(false);
     }

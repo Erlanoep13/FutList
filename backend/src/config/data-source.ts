@@ -1,6 +1,5 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
-import { User } from '../modules/users/entities/User';
 import { Racha } from '../modules/racha/entities/Racha'; 
 import { RachaNome } from '../modules/racha/entities/RachaNome';
 import 'dotenv/config';
@@ -19,7 +18,7 @@ export const AppDataSource = new DataSource({
   synchronize: true, 
   
   logging: false,
-  entities: [User, Racha, RachaNome], 
+  entities: [Racha, RachaNome], 
   migrations: [],
   subscribers: [],
 });

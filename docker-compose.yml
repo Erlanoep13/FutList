@@ -11,6 +11,7 @@ services:
     environment:
       - JWT_SECRET=super_secret_futlist_key
       - DATABASE_URL=postgresql://postgres.efpwelhuaelglifegiji:Erlanoroyale13@aws-1-sa-east-1.pooler.supabase.com:6543/postgres
+    volumes:
       - ./backend:/usr/src/app
       - /usr/src/app/node_modules
 
