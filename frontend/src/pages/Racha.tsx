@@ -170,6 +170,7 @@ export function Racha() {
                 Lista do WhatsApp <span className="text-futlist-red">*</span>
               </label>
               <textarea
+                data-cy="lista-principal"
                 className="w-full flex-1 min-h-[150px] bg-futlist-dark border border-gray-700 rounded-xl p-3 text-futlist-text focus:outline-none focus:border-futlist-green resize-none"
                 placeholder="Cole aqui a lista numerada..."
                 value={rawText}
@@ -180,6 +181,7 @@ export function Racha() {
             <div>
               <label className="block text-sm font-medium text-futlist-muted mb-1">Nomes Extras (Opcional)</label>
               <textarea
+                data-cy="nomes-extras"
                 className="w-full h-24 bg-futlist-dark border border-gray-700 rounded-xl p-3 text-futlist-text focus:outline-none focus:border-futlist-green resize-none"
                 placeholder="Nomes extras..."
                 value={extraText}
@@ -189,12 +191,14 @@ export function Racha() {
 
             <div className="mt-auto pt-2 flex flex-col gap-3">
               <button
+                data-cy="btn-organizar"
                 onClick={processarLista}
                 className="w-full bg-futlist-green hover:bg-emerald-500 text-futlist-dark font-bold py-4 rounded-xl transition-colors"
               >
                 Organizar Nomes
               </button>
               <button
+                data-cy="btn-limpar"
                 onClick={limparLista}
                 className="w-full bg-transparent border border-futlist-red/50 text-futlist-red hover:bg-futlist-red hover:text-white font-bold py-3 rounded-xl transition-colors"
               >
@@ -261,6 +265,7 @@ export function Racha() {
               )}
 
               <button
+                data-cy="btn-sortear"
                 onClick={handleSorteio}
                 disabled={loading}
                 className="w-full bg-futlist-green hover:bg-emerald-500 disabled:opacity-50 text-futlist-dark font-bold py-4 rounded-xl transition-colors"

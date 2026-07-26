@@ -11,8 +11,8 @@ export const AppDataSource = new DataSource({
   // Se não achar (quando rodar no seu PC local), usa os dados de fallback.
   url: process.env.DATABASE_URL || 'postgresql://admin:adminpassword@localhost:5432/futlist_db',
   
-  // REGRA DO SUPABASE: Conexões externas precisam de SSL obrigatório
-  ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false,
+  // REGRA: Conexões em produção (Supabase) precisam de SSL. Localmente não.
+  ssl: process.env.DATABASE_URL && process.env.DATABASE_URL.includes('supabase') ? { rejectUnauthorized: false } : false,
   
   // IMPORTANTE: Trocado para true para que o TypeORM construa as tabelas no Supabase agora
   synchronize: true, 

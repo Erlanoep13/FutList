@@ -1,5 +1,19 @@
 services:
-  # Back-end API (Conectado ao Supabase na nuvem)
+  # Banco de Dados Local
+  db:
+    image: postgres:15-alpine
+    container_name: futlist-db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: adminpassword
+      POSTGRES_DB: futlist_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # Back-end API
   futlist-backend:
     build: 
       context: ./backend
@@ -10,7 +24,9 @@ services:
       - "3333:3333"
     environment:
       - JWT_SECRET=super_secret_futlist_key
-      - DATABASE_URL=postgresql://postgres.efpwelhuaelglifegiji:Erlanoroyale13@aws-1-sa-east-1.pooler.supabase.com:6543/postgres
+      - DATABASE_URL=postgresql://admin:adminpassword@db:5432/futlist_db
+    depends_on:
+      - db
     volumes:
       - ./backend:/usr/src/app
       - /usr/src/app/node_modules
@@ -29,3 +45,6 @@ services:
       - /usr/src/app/node_modules
     depends_on:
       - futlist-backend
+
+volumes:
+  postgres_data:
