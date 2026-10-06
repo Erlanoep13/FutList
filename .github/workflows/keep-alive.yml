@@ -1,0 +1,15 @@
+name: Keep Alive Ping
+
+on:
+  schedule:
+    - cron: "*/14 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render Backend
+        run: |
+          echo "Acordando o servidor Render..."
+          curl -s --max-time 120 ${{ secrets.RENDER_PING_URL }} || echo "Ping enviado!"
