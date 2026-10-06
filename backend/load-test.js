@@ -3,7 +3,7 @@ import { sleep, check } from 'k6';
 
 // Configuração de Carga (escalonável para estresse: 10, 50, 100, 1000 VUs...)
 export const options = {
-    vus: 100,          // 10 Usuários Virtuais simultâneos
+    vus: 500,          // 10 Usuários Virtuais simultâneos
     duration: '60s',  // Duração total do teste
 };
 
