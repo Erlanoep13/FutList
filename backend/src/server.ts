@@ -1,3 +1,4 @@
+import './instrument';
 import 'reflect-metadata';
 import { AppDataSource } from './config/data-source';
 import { app } from './app';

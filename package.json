@@ -5,5 +5,9 @@
   },
   "scripts": {
     "prepare": "husky"
+  },
+  "dependencies": {
+    "@sentry/node": "^11.6.0",
+    "@sentry/profiling-node": "^11.6.0"
   }
 }
