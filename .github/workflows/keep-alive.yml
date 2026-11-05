@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fazer o ping no backend
-        run: curl -s https://futlist.onrender.com/ping
+        run: curl -fsS --max-time 60 --retry 2 https://futlist.onrender.com/ping
